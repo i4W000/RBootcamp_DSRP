@@ -1,6 +1,4 @@
-# RBootcamp_DSRP
-
-##Trabajo final del R Bootcamp de Data Science Research Perú##
+# RBootcamp_DSRP - Trabajo final del R Bootcamp de Data Science Research Perú##
 
 # Crear un vector con los títulos
 Ej1 <- as.vector(games$title)
@@ -10,11 +8,11 @@ Ej1
 pFinal <- as.numeric(games$price_final)
 pFinal
 
-#Condición lógica de precios bajos
+# Condición lógica de precios bajos
 pBajos <- pFinal < 10.99
 pBajos
 
-#Sumar 5 al vector creado
+# Sumar 5 al vector creado
 nPrecio <- pBajos + 5
 nPrecio
 
@@ -23,8 +21,7 @@ rPunt <- as.numeric(games$positive_ratio)
 rPuntMitad <- rPunt / 2
 rPuntMitad
 
-#Calcular la media, moda, max, min de los datos de tipo numérico.
-#Verficar conla función Class
+# Calcular la media, moda, max, min de los datos de tipo numérico. Verficar con la función Class
 class(games)
 
 # Calcular la media de los datos de tipo numérico
@@ -95,19 +92,19 @@ mDiscount
 nDf <- data.frame(games[,1:13])
 nDf
 
-#Agregar filas y columnas a la matriz
+# Agregar filas y columnas a la matriz
 nMat <- matrix(c(games$price_final[1:9]), nrow = 3)
 nMatr <- cbind(nMat, 1)
 Juegos <- c(0.8, 0.9, 0.7, 1)
 nMatri <- rbind(nMatr, Juegos)
 nMatri
 
-#Eliminar filas y columnas de la matriz
+# Eliminar filas y columnas de la matriz
 colnames(nMatri) <- NULL
 rownames(nMatri) <- NULL
 nMatri
 
-#Seleccionar elementos de la matriz
+# Seleccionar elementos de la matriz
 nMatri[1,2]
 nMatri[3,3]
 
@@ -116,41 +113,41 @@ df <- as.data.frame(nMatri)
 colnames(df) <- c("A", "B", "C","D")
 df
 
-#Acceder a los datos del dataframe
+# Acceder a los datos del dataframe
 df$A
 df$B
 
-#Cambiar nombre de dataframe
+# Cambiar nombre de dataframe
 NuevoNombre <- assign("NuevoNombre",nMatri)
 NuevoNombre
 
-#Seleccionar elementos del nuevo df
+# Seleccionar elementos del nuevo df
 NuevoNombre[1,2]
 NuevoNombre[3,3]
 
-#Importar datos y ordenar los datos con la función order()
+# Importar datos y ordenar los datos con la función order()
 pFinal_Ord <- order(games$price_final)
 pFinal_Ord
 
-#Mostrar el dataframe ordenado de manera ascendente y descendente
+# Mostrar el dataframe ordenado de manera ascendente y descendente
 pFinal_OrdDes <- order(pFinal_Ord, decreasing = TRUE)
 pFinal_OrdDes
 
 pFinal_OrdAsc <- order(games$price_final)
 pFinal_OrdAsc
 
-#Calcular el resumen estadístico de los datos con la función que corresponde
+# Calcular el resumen estadístico de los datos con la función que corresponde
 summary(games)
 summary(pFinal_Ord)
 
-#Realizar las graficas
+# Realizar las graficas
 plot(games$price_final,games$positive_ratio)
 g1 <- subset(games, games$title %in% c('Inquisitor','Call of Duty: World at War'))
 barplot(g1$price_final, main = "Comparación de precio de videojuego",
         ylab = "Precio", xlab = "Videojuego",
         names.arg = c("Call of Duty","Inquisitor"))
 
-#Implementar una función para la multiplicación de dos vectores(xy)
+# Implementar una función para la multiplicación de dos vectores(xy)
 #Probar con valores
 DescuentoPfinal <- games$price_final*0.10
 pFinalDesc <- games$price_final - DescuentoPfinal
@@ -163,8 +160,8 @@ funDesc <- function(desc) {
 funDesc()
 
 
-#Implementar una función con la ecuación de Bhaskara
-#Probar con valores
+# Implementar una función con la ecuación de Bhaskara
+# Probar con valores
 
 bhaskara <- function(a, b, c) {
   discriminante <- b^2 - 4 * a * c
@@ -183,16 +180,13 @@ bhaskara <- function(a, b, c) {
 bhaskara(1,-5,6)
 bhaskara(3,4,5)
 
-#Conocer la media muestral de n observaciones obtenidas
-#independientemente de una distribución normal con media = 0 y varianza =1
+# Conocer la media muestral de n observaciones obtenidas.Independientemente de una distribución normal con media = 0 y varianza =1
 
 dbMuestra <- rnorm(5)
 print(dbMuestra)
 mean(dbMuestra)
 
-#Realizar una simulación
-#Calcular las estadísticas descriptivas
-#Aplicar la función que corresponde y graficar
+# Realizar una simulación, calcular las estadísticas descriptivas y aplicar la función que corresponde y graficar.
 
 summary(dbMuestra)
 barplot(dbMuestra, names.arg = c("A","B","C","D","E"), ylab = "Valores",
